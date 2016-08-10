@@ -1,0 +1,23 @@
+{
+  "name": "Backlog Issue Template",
+  "version": "0.1.0",
+  "manifest_version": 2,
+  "description": "課題追加時にテンプレを挿入できるようにします",
+  "permissions": ["https://*.backlog.jp/api/*"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.backlog.jp/add/*"
+      ],
+      "js": [
+        "jquery-3.1.0.min.js",
+        "run.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

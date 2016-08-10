@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Option settings</title>
+  <script src="jquery-3.1.0.min.js"></script>
+  <script src="options.js"></script>
+</head>
+<body>
+  <dl>
+    <dt>Backlog Space Key</dt>
+    <dd><input type="text" name="spaceKey" id="spaceKey"></dd>
+    <dt>Backlog API Key <pre>https://{Space Key}.backlog.jp/EditApiSettings.action</pre></dt>
+    <dd><input type="text" name="apiKey" id="apiKey"></dd>
+    <dt>Template Issue ID or Issue Key</dt>
+    <dd><input type="text" name="issueIdOrKey" id="issueIdOrKey"></dd>
+  </dl>
+  <p><input type="button" value="Save" id="save"></p>
+</body>
+</html>
