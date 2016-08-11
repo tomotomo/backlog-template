@@ -1,12 +1,7 @@
 $(function () {
-
-  var options = ['spaceKey', 'apiKey', 'issueIdOrKey'];
-  for (var i=0; i<options.length; i++) {
-    var k = options[i];
-    chrome.runtime.sendMessage({method: "getLocalStorage", key: k}, function(response) {
-      console.log(k, response.data);
-    });
-  }
+  chrome.storage.sync.get(['spaceKey', 'apiKey', 'issueIdOrKey'], function (data) {
+    console.log(data);
+  });
   // TODO localStorageの設定データが全部取得できたら実行する。
   run();
 });

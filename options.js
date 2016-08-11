@@ -1,18 +1,25 @@
 $(function () {
-  var options = ['spaceKey', 'apiKey', 'issueIdOrKey'];
-  $('#save').on('click', function () {
-    for (var i=0; i<options.length; i++) {
-      var v = options[i];
-      localStorage[v] = $('#'+v).val();
-    }
-    console.log('Options are saved.');
-  });
 
   // 初期値の設定
-  for (var i=0; i<options.length; i++) {
-    var v = options[i];
-    if (localStorage[v]) {
-      $('#'+v).val(localStorage[v]);
-    }
-  }
+  chrome.storage.sync.get(['spaceKey', 'apiKey', 'issueIdOrKey'], function (data) {
+    $('#spaceKey').val(data.spaceKey);
+    $('#apiKey').val(data.apiKey);
+    $('#issueIdOrKey').val(data.issueIdOrKey);
+  });
+
+  var key = 'backlog-template';
+  var vals = {};
+  $('#save').on('click', function () {
+    vals = {
+      spaceKey: $('#spaceKey').val(),
+      apiKey: $('#apiKey').val(),
+      issueIdOrKey: $('#issueIdOrKey').val()
+    };
+    console.log(vals);
+    chrome.storage.sync.set(vals, function () {
+      console.log('Options are saved', vals);
+    });
+  });
+
+
 });

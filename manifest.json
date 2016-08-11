@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "manifest_version": 2,
   "description": "課題追加時にテンプレを挿入できるようにします",
-  "permissions": ["https://*.backlog.jp/api/*"],
-  "background": {
-    "scripts": ["background.js"]
-  },
+  "permissions": [
+    "storage",
+    "https://*.backlog.jp/api/v2/*"
+  ],
   "options_page": "options.html",
   "content_scripts": [
     {
