@@ -7,7 +7,6 @@ $(function () {
     $('#issueIdOrKey').val(data.issueIdOrKey);
   });
 
-  var key = 'backlog-template';
   var vals = {};
   $('#save').on('click', function () {
     vals = {
@@ -15,9 +14,10 @@ $(function () {
       apiKey: $('#apiKey').val(),
       issueIdOrKey: $('#issueIdOrKey').val()
     };
-    console.log(vals);
+    
     chrome.storage.sync.set(vals, function () {
-      console.log('Options are saved', vals);
+      console.log('Options saved', vals);
+      $('#message').text('Options saved!!').show();
     });
   });
 
