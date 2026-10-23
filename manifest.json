@@ -13,8 +13,8 @@
   "content_scripts": [
     {
       "matches": [
-        "https://*.backlog.jp/add/*",
-        "https://*.backlog.com/add/*"
+        "https://*.backlog.com/add/*",
+        "https://*.backlog.jp/add/*"
       ],
       "js": [
         "run.js"
